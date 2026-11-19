@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Verse — a hyper-minimalist AI client where nothing gets in the way. Chat, agents, files, memory. Free, forever." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%3E%3Cpath%20d='M12%2012.4c-1.9%202.6-3.4%204.6-5.6%204.6a4.6%204.6%200%200%201%200-9.2c2.2%200%203.7%202%205.6%204.6%201.9%202.6%203.4%204.6%205.6%204.6a4.6%204.6%200%200%200%200-9.2c-2.2%200-3.7%202-5.6%204.6Z'%20stroke='%2394A3B8'%20stroke-width='1.6'/%3E%3Ccircle%20cx='19.2'%20cy='7.1'%20r='1.9'%20fill='%2394A3B8'/%3E%3C/svg%3E" />
+  <title>Verse — nothing gets in the way.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════ nav ══════════════ -->
+  <header class="site-nav">
+    <a class="brand" href="#top" aria-label="Verse home">
+      <svg class="brand-mark" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="nav-loop-grad" x1="4" y1="6" x2="20" y2="18" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#e2e8f0" />
+            <stop offset="0.55" stop-color="#94A3B8" />
+            <stop offset="1" stop-color="#4b5563" />
+          </linearGradient>
+        </defs>
+        <path d="M12 12.4c-1.9 2.6-3.4 4.6-5.6 4.6a4.6 4.6 0 0 1 0-9.2c2.2 0 3.7 2 5.6 4.6 1.9 2.6 3.4 4.6 5.6 4.6a4.6 4.6 0 0 0 0-9.2c-2.2 0-3.7 2-5.6 4.6Z" stroke="url(#nav-loop-grad)" stroke-width="1.6" stroke-linecap="round" />
+        <circle cx="19.2" cy="7.1" r="1.9" fill="#94A3B8" />
+      </svg>
+      <span class="brand-name">VERSE</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#demo">Demo</a>
+      <a href="#features">Features</a>
+      <a href="#guide">How it works</a>
+      <a href="#download">Download</a>
+    </nav>
+    <a class="btn btn-chip" href="download/Verse-Setup-1.0.0.exe" download>
+      <span class="btn-chip-dot" aria-hidden="true"></span>Download
+    </a>
+  </header>
+
+  <main id="top">
+
+    <!-- ══════════════ hero ══════════════ -->
+    <section class="hero" aria-label="Verse">
+      <div class="ambient hero-ambient" aria-hidden="true"></div>
+      <div class="hero-emblem" data-reveal aria-hidden="true">
+        <span class="ring ring-1"></span>
+        <span class="ring ring-2"></span>
+        <span class="satellite"></span>
+        <div class="orb orb-hero">
+          <span class="orb-halo"></span>
+          <span class="orb-core"></span>
+        </div>
+      </div>
+
+      <h1 class="hero-wordmark" data-reveal>Verse</h1>
+      <p class="hero-pitch" data-reveal>A hyper-minimalist AI client. Chat, files, agents, memory — nothing gets in the way.</p>
+
+      <div class="hero-hints" data-reveal aria-hidden="true">
+        <span>Attach anything</span><i></i><span>Switch models</span><i></i><span>Press enter</span>
+      </div>
+
+      <canvas id="wave" class="hero-wave" height="56" data-reveal aria-hidden="true"></canvas>
+
+      <div class="hero-ctas" data-reveal>
+        <div class="cta-stack">
+          <a class="btn btn-primary" href="download/Verse-Setup-1.0.0.exe" download>Download for Windows</a>
+          <span class="cta-sub">≈115 MB — free, forever</span>
+        </div>
+        <a class="btn btn-ghost" href="#demo">See how it works</a>
+      </div>
+
+      <div class="hero-stats" data-reveal aria-label="Key facts">
+        <span>$0 — every model free</span><i></i>
+        <span>6-model repair ladder</span><i></i>
+        <span>115 MB installer</span>
+      </div>
+    </section>
+
+    <!-- ══════════════ live demo ══════════════ -->
+    <section class="section" id="demo">
+      <header class="section-head" data-reveal>
+        <span class="microlabel">Live demo</span>
+        <h2>Watch it think.</h2>
+        <p>A faithful simulation of the real timeline — trace length follows the effort selector, the model chip follows the repair ladder. Runs entirely in this page.</p>
+      </header>
+
+      <div class="demo-shell" id="demoShell" data-reveal>
+        <div class="demo-titlebar" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <defs>
+              <linearGradient id="demo-loop-grad" x1="4" y1="6" x2="20" y2="18" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#e2e8f0" />
+                <stop offset="0.55" stop-color="#94A3B8" />
+                <stop offset="1" stop-color="#4b5563" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12.4c-1.9 2.6-3.4 4.6-5.6 4.6a4.6 4.6 0 0 1 0-9.2c2.2 0 3.7 2 5.6 4.6 1.9 2.6 3.4 4.6 5.6 4.6a4.6 4.6 0 0 0 0-9.2c-2.2 0-3.7 2-5.6 4.6Z" stroke="url(#demo-loop-grad)" stroke-width="1.6" stroke-linecap="round" />
+            <circle cx="19.2" cy="7.1" r="1.9" fill="#94A3B8" />
+          </svg>
+          <span>VERSE</span>
+          <span class="demo-winbtns">
+            <svg width="10" height="10" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14" /></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2" /></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
+          </span>
+        </div>
+
+        <div class="demo-timeline" id="demoTimeline" aria-live="polite">
+          <div class="demo-greeting">
+            <span></span>
+            <em>Pick a prompt below, or type your own</em>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="demo-toast" id="demoToast" role="status"></div>
+
+        <div class="demo-composer">
+          <div class="prompt-pill">
+            <button type="button" class="pill-plus" id="demoAttach" aria-label="Attach (demo)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
+            </button>
+            <textarea id="demoInput" rows="1" placeholder="Message Verse…" aria-label="Demo message input"></textarea>
+            <span class="pill-model" id="demoModelChip" title="The model the ladder is riding right now">
+              <span class="pill-model-dot" aria-hidden="true"></span>
+              <span id="demoModelName">nemotron-lightning</span>
+            </span>
+            <button type="button" class="pill-send" id="demoSend" aria-label="Send message" title="Send · Enter" disabled>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+            </button>
+          </div>
+          <div class="demo-whisperrow" id="demoWhisper" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="demo-controls" data-reveal>
+        <div class="demo-control-row">
+          <span class="microlabel">Reasoning</span>
+          <div class="effort-row" id="effortRow" role="group" aria-label="Reasoning effort">
+            <button type="button" data-effort="off">OFF</button>
+            <button type="button" data-effort="low">LOW</button>
+            <button type="button" data-effort="medium" aria-pressed="true">MEDIUM</button>
+            <button type="button" data-effort="high">HIGH</button>
+          </div>
+          <span class="demo-hint" id="effortHint">medium — 4 trace steps</span>
+        </div>
+        <div class="demo-control-row">
+          <span class="microlabel">Prompts</span>
+          <div class="prompt-chips" id="promptChips" role="group" aria-label="Suggested prompts">
+            <button type="button" data-prompt="quantum">Explain quantum tunneling</button>
+            <button type="button" data-prompt="agents">/agents 3 design a landing page</button>
+            <button type="button" data-prompt="notes">Summarize notes.md</button>
+          </div>
+          <span class="demo-hint">run the same one twice — watch the ladder</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ features ══════════════ -->
+    <section class="section" id="features">
+      <header class="section-head" data-reveal>
+        <span class="microlabel">Features</span>
+        <h2>What it actually does.</h2>
+        <p>Twelve mechanisms, all real. Click any card for the magic behind it.</p>
+      </header>
+
+      <div class="feature-grid">
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 12v5h5" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Always answers</span>
+              <span class="feature-sum">A request that hits a rate-limited provider falls to the next free model. The stream never stops.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="ladder-row" role="img" aria-label="Fallback ladder: nemotron-lightning, nemotron-ultra, flint, ernie, ling, dots">
+                <code>nemotron-lightning</code><i>→</i><code>nemotron-ultra</code><i>→</i><code>flint</code><i>→</i><code>ernie</code><i>→</i><code>ling</code><i>→</i><code class="is-answer">dots</code>
+              </div>
+              <p>Each hop is tried in order. A provider rate-limiting upstream reads like a busy line: Verse silently re-issues the request to the next model and stitches the stream where it left off. You see a tiny model-label swap, nothing else.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 12l3.2-3.2" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Reasoning effort</span>
+              <span class="feature-sum">OFF / LOW / MEDIUM / HIGH, passed straight through to models that think.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="effort-mini" aria-hidden="true"><span>OFF</span><span>LOW</span><span class="is-on">MEDIUM</span><span>HIGH</span></div>
+              <p>The effort value rides the request as <code>reasoning-effort</code>. The visible effect is the thinking trace itself: lower effort, shorter trace, faster first token. OFF skips the trace entirely and answers immediately.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h9M7 14h13M7 18h9" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Thinking traces</span>
+              <span class="feature-sum">The model's step-by-step reasoning renders live, as a collapse above the answer.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="trace-mini" aria-hidden="true">
+                <span class="trace-pill"><i></i>Thought process<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                <ol>
+                  <li><b></b><span>Scout: surveying the question</span></li>
+                  <li><b></b><span>Analyst: structuring the reply</span></li>
+                  <li><b></b><span>Critic: checking the analogy</span></li>
+                </ol>
+              </div>
+              <p>Reasoning tokens stream into a frosted drawer while they arrive. When the answer starts, the trace collapses to a one-line pill — open it any time to re-read how the answer was built.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57a4 4 0 1 1 5.66 5.66l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Universal attachments</span>
+              <span class="feature-sum">Drop, pick or paste. Images, PDFs, code, text — anything enters the thread.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="flow-row" aria-hidden="true">
+                <span>paste / drop</span><i>→</i><span>ingest</span><i>→</i><span>content part</span>
+              </div>
+              <ul class="ingest-list">
+                <li><b>images</b> — base64, inline</li>
+                <li><b>pdf</b> — text mined from the raw PDF parse, in-browser</li>
+                <li><b>code &amp; text</b> — inline, capped by size</li>
+                <li><b>everything else</b> — metadata chip only</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="8.5" cy="10" r="1.5" /><path d="m21 15-4.5-4.5L6 21" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Images in chat</span>
+              <span class="feature-sum">Attached images render as framed thumbnails; click opens the full view.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="thumb-row" aria-hidden="true">
+                <span class="thumb"><i></i></span>
+                <span class="thumb thumb-2"><i></i></span>
+                <span class="thumb-caption">hairline frame → click → lightbox, escape to close</span>
+              </div>
+              <p>Gallery images ride the timeline in framed thumbnails aligned to the message side. The lightbox is a single overlay — no tabs, no gallery chrome.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2" /><circle cx="19" cy="6" r="2" /><circle cx="19" cy="12" r="2" /><circle cx="19" cy="18" r="2" /><path d="M7 12h10M17.2 6.8 13 10m4.2 5.2L13 12m4.2 5.2L13 14" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Parallel agents</span>
+              <span class="feature-sum">Type /agents 4 and a goal. Workers run side by side; one synthesized answer returns.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="fan" role="img" aria-label="One goal fans out to three workers and merges into one answer">
+                <span class="fan-src">goal</span>
+                <span class="fan-mid">
+                  <span><b></b>Scout — survey the space</span>
+                  <span><b></b>Analyst — commit to positions</span>
+                  <span><b></b>Critic — stress-test the draft</span>
+                </span>
+                <span class="fan-dst">one answer</span>
+              </div>
+              <p>Workers share the goal with distinct system prompts and answer simultaneously. The synthesis merges their output into a single message — you read one document, not three opinions.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">AI file access</span>
+              <span class="feature-sum">Grant a folder and the AI reads granted files — and writes files back as download cards.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="sandbox" role="img" aria-label="User folder, enforced by the desktop shell, seen by the AI as a path tag">
+                <span>your folder</span><i>→</i><span class="is-mid">shell-enforced</span><i>→</i><code>[read path="…"]</code>
+              </div>
+              <p>One toggle in Settings. Every read request must name a path inside the granted folder and the desktop shell rejects anything else. Files the AI creates arrive as <code>verse-file</code> blocks — download cards in the chat, written where you said.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Selective memory</span>
+              <span class="feature-sum">Pin the insight, not the transcript. Pinned lines survive; history stays out of context.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="pins" aria-hidden="true">
+                <span class="pin-on"><b></b>deadline: the 15th, not the 1st</span>
+                <span class="pin-on"><b></b>route keys: quay lock ↔ blue key</span>
+                <span class="pin-off">"— twelve lines about the weather …"</span>
+              </div>
+              <p>A pin lifts one sentence out of a message and keeps it in context forever. Everything unpinned ages out with the thread — the model remembers what mattered, not what was merely said.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5a8 8 0 0 1 16 0" /><path d="M12 15.5 15.5 11" /><path d="M3 19h18" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Token engine</span>
+              <span class="feature-sum">Live metering with automatic compaction of old context before overflow.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="meter" aria-hidden="true">
+                <span class="meter-bar meter-hot" data-label="68% — nearing the window"></span>
+                <i>compact →</i>
+                <span class="meter-bar" data-label="21% — after compaction"></span>
+              </div>
+              <p>Every request is metered against the model's real window. As the bar climbs, the oldest turns are summarized and folded away — the thread keeps going where other clients hit a wall.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="12" rx="2" /><path d="M8 21h8M12 17v4" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Desktop and browser</span>
+              <span class="feature-sum">One static build: a Windows installer, or any browser. Same window, same features.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="flow-row" aria-hidden="true">
+                <span>Windows installer</span><i>·</i><span>any browser</span>
+              </div>
+              <p>The desktop shell adds the frameless window, drag regions and the file sandbox. The web build skips those and delivers everything else — chat, agents, traces, memory — from the same static assets.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3 2" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Session history</span>
+              <span class="feature-sum">Transcripts persist locally and restore instantly, exactly where you left them.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="sessions" aria-hidden="true">
+                <span><b>10:02</b>quantum tunneling — pinned 2</span>
+                <span><b>17:41</b>landing page panel — 3 workers</span>
+                <span><b>ydays</b>notes.md synthesis</span>
+              </div>
+              <p>Sessions are saved as plain local records and rehydrate on open — full timeline, pins and attachments, no loading state worth naming.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card" data-reveal>
+          <button type="button" class="feature-head" aria-expanded="false">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5" /><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5" /><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5" /><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5" /></svg></span>
+            <span class="feature-txt">
+              <span class="feature-title">Free model pool</span>
+              <span class="feature-sum">Every free model on OpenRouter, detected live from the catalog. All of it $0.</span>
+            </span>
+            <span class="feature-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
+          </button>
+          <div class="feature-body">
+            <div class="feature-body-inner">
+              <div class="pool" aria-hidden="true">
+                <code>nemotron-ultra</code><code>deepseek-v3</code><code>llama-4-maverick</code><code>glm-4.5-air</code><code>qwen3-coder</code><code>kimi-k2</code><code>mistral-small-3.2</code><code class="is-answer">+ everything new</code>
+              </div>
+              <p>The catalog is fetched live and filtered to genuinely free models — pricing checked, not trusted. New free models appear in the picker on their own; the repair ladder covers the whole pool.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ══════════════ pipeline ══════════════ -->
+    <section class="section" id="pipeline">
+      <header class="section-head" data-reveal>
+        <span class="microlabel">Under the hood</span>
+        <h2>The magic behind everything.</h2>
+        <p>What happens when you hit enter — the same four stages, every time.</p>
+      </header>
+
+      <div class="pipeline" data-reveal role="img" aria-label="Send, transport, repair ladder, stream: a pulse travels through all four stages">
+        <div class="pipeline-track" aria-hidden="true"><span class="pipeline-pulse"></span></div>
+        <div class="pipeline-stage">
+          <span class="pipe-node"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg></span>
+          <span class="microlabel">Send</span>
+          <p>one pill, enter — attachments ride along</p>
+        </div>
+        <div class="pipeline-stage">
+          <span class="pipe-node"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5M4 11v6m16-6v6M2 21h20" /></svg></span>
+          <span class="microlabel">Transport</span>
+          <p>one request to the OpenRouter catalog</p>
+        </div>
+        <div class="pipeline-stage">
+          <span class="pipe-node"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 12v5h5" /></svg></span>
+          <span class="microlabel">Repair ladder</span>
+          <p>busy upstream — hop to the next free model</p>
+        </div>
+        <div class="pipeline-stage">
+          <span class="pipe-node"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h12M4 12h9M4 17h13" /><path d="M18 15.5 20.5 18l3-3.5" transform="translate(-1.5 0)" /></svg></span>
+          <span class="microlabel">Stream</span>
+          <p>deltas stitch into one answer</p>
+        </div>
+      </div>
+      <p class="pipeline-note" data-reveal>Every hop in the ladder is still free — the whole pool costs nothing.</p>
+    </section>
+
+    <!-- ══════════════ guide ══════════════ -->
+    <section class="section" id="guide">
+      <header class="section-head" data-reveal>
+        <span class="microlabel">Setup</span>
+        <h2>How it works, end to end.</h2>
+        <p>Six steps, about two minutes.</p>
+      </header>
+
+      <ol class="guide">
+        <li class="guide-step" data-reveal>
+          <span class="guide-num">01</span>
+          <div class="guide-txt">
+            <h3>Take your OpenRouter key</h3>
+            <p>Create one at openrouter.ai. Free models need a key, not a payment method.</p>
+          </div>
+        </li>
+        <li class="guide-step" data-reveal>
+          <span class="guide-num">02</span>
+          <div class="guide-txt">
+            <h3>Install, paste the key once</h3>
+            <p>Run the 115 MB installer, paste the key into Settings. It never leaves local storage.</p>
+          </div>
+        </li>
+        <li class="guide-step" data-reveal>
+          <span class="guide-num">03</span>
+          <div class="guide-txt">
+            <h3>Models detect themselves</h3>
+            <p>The catalog loads and every free model appears in the picker. Zero configuration.</p>
+          </div>
+        </li>
+        <li class="guide-step" data-reveal>
+          <span class="guide-num">04</span>
+          <div class="guide-txt">
+            <h3>Talk, paste, drop</h3>
+            <p>Ask, paste images or code, drop PDFs — all of it enters one continuous thread.</p>
+          </div>
+        </li>
+        <li class="guide-step" data-reveal>
+          <span class="guide-num">05</span>
+          <div class="guide-txt">
+            <h3>Grant file access when you want it</h3>
+            <p>One toggle in Settings. The AI reads only inside the folder you granted, enforced by the shell.</p>
+          </div>
+        </li>
+        <li class="guide-step" data-reveal>
+          <span class="guide-num">06</span>
+          <div class="guide-txt">
+            <h3>Nothing leaves but the chat itself</h3>
+            <p>Keys and transcripts live on your machine. The only traffic is the completion request.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ══════════════ download ══════════════ -->
+    <section class="section" id="download">
+      <div class="download-card" data-reveal>
+        <span class="microlabel">Download</span>
+        <h2>Verse 1.0.0 for Windows</h2>
+        <p class="download-sub">A tiny installer. No account, no telemetry, no subscription.</p>
+        <div class="cta-stack cta-stack-center">
+          <a class="btn btn-primary btn-big" href="download/Verse-Setup-1.0.0.exe" download>Download for Windows</a>
+          <span class="cta-sub">≈115 MB — free, forever</span>
+        </div>
+        <div class="download-divider" aria-hidden="true"></div>
+        <p class="download-web">or run it in a browser:</p>
+        <code class="code-chip">npm run build &amp;&amp; npm run web</code>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ footer ══════════════ -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="foot-loop-grad" x1="4" y1="6" x2="20" y2="18" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#e2e8f0" />
+            <stop offset="0.55" stop-color="#94A3B8" />
+            <stop offset="1" stop-color="#4b5563" />
+          </linearGradient>
+        </defs>
+        <path d="M12 12.4c-1.9 2.6-3.4 4.6-5.6 4.6a4.6 4.6 0 0 1 0-9.2c2.2 0 3.7 2 5.6 4.6 1.9 2.6 3.4 4.6 5.6 4.6a4.6 4.6 0 0 0 0-9.2c-2.2 0-3.7 2-5.6 4.6Z" stroke="url(#foot-loop-grad)" stroke-width="1.6" stroke-linecap="round" />
+        <circle cx="19.2" cy="7.1" r="1.9" fill="#94A3B8" />
+      </svg>
+      <span>Verse — nothing gets in the way.</span>
+    </div>
+    <span class="footer-note">Free, forever</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
